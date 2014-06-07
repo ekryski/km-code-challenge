@@ -7,6 +7,10 @@
     return d.toLocaleString();
   });
 
+  $('.test').click(function(){
+    window.runTests();
+  });
+
   var Table = can.Control.extend(
     {
       defaults : {

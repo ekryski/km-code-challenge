@@ -40,7 +40,12 @@
       td input {
         width: 100%;
       }
+
+      #qunit {
+        margin-bottom: 40px;
+      }
     </style>
+    <link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.14.0.css">
   </head>
   <body>
     <div class="hero">
@@ -48,8 +53,13 @@
         <img src="img/km-logo.png" alt="Kiss Metrics" class="logo">
       </p>
       <h1 class="text-center">A sortable table</h1>
+      <p class="text-center">
+        <button class="button test">Run Tests</button>
+      </p>
     </div>
     
+    <div id="qunit" class="visuallyhidden"></div>
+
     <div id="table"></div>
 
     <script type="text/mustache" id="tableTemplate">
@@ -86,7 +96,10 @@
     <script type='text/javascript' src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type='text/javascript' src='//canjs.us/release/latest/can.jquery.min.js'></script>
     <script type='text/javascript' src='//canjs.us/release/latest/can.list.sort.js'></script>
+    <script type='text/javascript' src='//code.jquery.com/qunit/qunit-1.14.0.js'></script>
+    <script type='text/javascript' src='//funcunit.com/dist/latest/funcunit.js'></script>
     <script type='text/javascript' src='js/people.js'></script>
     <script type='text/javascript' src='js/main.js'></script>
+    <script type='text/javascript' src='js/table.test.js'></script>
   </body>
 </html>
