@@ -10,7 +10,7 @@
   var Table = can.Control.extend(
     {
       defaults : {
-        view: '<table><thead><tr><td>Name</td><td>City</td><td>Province</td><td>Country</td><td>Birthday</td></tr></thead><tbody></tbody></table>'
+        view: '<table><thead><tr><td>Name</td><td>City</td><td>Province</td><td>Country</td><td>Birthday</td><td></td></tr></thead><tbody></tbody></table>'
       }
     },
     {
