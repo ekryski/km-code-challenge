@@ -1,8 +1,0 @@
-{
-  "name": "km-challenge",
-  "private": true,
-  "dependencies": {
-    "canjs": "~2.1.1"
-  },
-  "devDependencies": {}
-}
