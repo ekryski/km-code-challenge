@@ -29,4 +29,5 @@ I was trying to balance engineering and aesthetics vs. getting this out the door
 * Add icons to indicate which direction things are sorted and on what field
 * Probably use [reactive](https://github.com/component/reactive) instead because it is faster and lighter weight.
 * Make the component a bit more self-contained and modular. (ie. templates, exposed better)
+* Make existing tests less fragile
 * Add unit tests
