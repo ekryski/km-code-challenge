@@ -11,18 +11,32 @@
     {
       defaults : {
         view: '<table><thead><tr><td>Name</td><td>City</td><td>Province</td><td>Country</td><td>Birthday</td></tr></thead><tbody></tbody></table>',
-        row: '{{#each people}}<tr {{data "person"}}><td>{{name}}</td><td>{{city}}</td><td>{{province}}</td><td>{{country}}</td><td>{{prettyDate birthday}}</td></tr>{{/each}}'
       }
     },
     {
       init: function(element, options){
         this.element.append(this.options.view);
-        this.element.find('tbody').html(can.mustache(this.options.row)({ people: this.options.model }));
+        this.element.find('tbody').html(can.view('tableTemplate', { people: this.options.model }));
       },
 
       'thead td click': function(el, ev){
-        console.log('MODEL', this.options.model);
-        // TODO: sort based on header type
+        el.siblings('td').removeClass('ascending descending');
+        this.options.model.comparator = el.text().toLowerCase();
+        this.options.model.sort();
+
+        if (el.hasClass('ascending')) {
+          this.options.model.reverse();
+
+          el.toggleClass('descending');
+        }
+        else if (el.hasClass('descending')) {
+          el.toggleClass('descending');
+        }
+
+        el.toggleClass('ascending');
+
+        // NOTE (EK): We need to re-render because sort doesn't trigger a change event on the people model.
+        this.element.find('tbody').html(can.view('tableTemplate', { people: this.options.model }));
       },
 
       '.edit click': function(el, ev){

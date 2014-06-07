@@ -8,9 +8,20 @@
     <h1>A sortable table</h1>
     <div id="table"></div>
 
-    <sortable-table></sortable-table>
+    <script type="text/mustache" id="tableTemplate">
+      {{#each people}}
+        <tr {{data "person"}}>
+          <td>{{name}}</td>
+          <td>{{city}}</td>
+          <td>{{province}}</td>
+          <td>{{country}}</td>
+          <td>{{prettyDate birthday}}</td>
+        </tr>
+      {{/each}}
+    </script>
     <script type='text/javascript' src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type='text/javascript' src='//canjs.us/release/latest/can.jquery.min.js'></script>
+    <script type='text/javascript' src='//canjs.us/release/latest/can.list.sort.js'></script>
     <script type='text/javascript' src='js/people.js'></script>
     <script type='text/javascript' src='js/main.js'></script>
   </body>
