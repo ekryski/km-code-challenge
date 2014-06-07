@@ -1,23 +1,86 @@
 <html>
   <head>
     <title>KISSMetrics Code Challenge</title>
+    <link rel="stylesheet" href="css/base.css">
+    <style>
+      .hero {
+        padding: 100px 0;
+      }
+
+      .logo {
+        width: 300px;
+      }
+
+      .button {
+        padding: 5px 10px;
+        background: #2ecc71;
+      }
+      .button:hover {
+        background: #27ae60;
+      }
+
+      table {
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      table thead {
+        font-weight: 600;
+      }
+
+      table thead td {
+        cursor: pointer;
+      }
+
+      table thead td:hover {
+        color: #2ecc71;
+      }
+
+      td input {
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
-    <img src="img/km-logo.png" alt="Kiss Metrics">
-
-    <h1>A sortable table</h1>
+    <div class="hero">
+      <p class="text-center">
+        <img src="img/km-logo.png" alt="Kiss Metrics" class="logo">
+      </p>
+      <h1 class="text-center">A sortable table</h1>
+    </div>
+    
     <div id="table"></div>
 
     <script type="text/mustache" id="tableTemplate">
       {{#each people}}
         <tr {{data "person"}}>
-          <td>{{name}}</td>
-          <td>{{city}}</td>
-          <td>{{province}}</td>
-          <td>{{country}}</td>
-          <td>{{prettyDate birthday}}</td>
+          <td>
+            <input class="visuallyhidden" type="text" name="name" value="{{name}}" placeholder="Hulk Hogan">
+            <span>{{name}}</span>
+          </td>
+          <td>
+            <input class="visuallyhidden" type="text" name="city" value="{{city}}" placeholder="Orange County">
+            <span>{{city}}</span>
+          </td>
+          <td>
+            <input class="visuallyhidden" type="text" name="province" value="{{province}}" placeholder="California">
+            <span>{{province}}</span>
+          </td>
+          <td>
+            <input class="visuallyhidden" type="text" name="country" value="{{country}}" placeholder="USA">
+            <span>{{country}}</span>
+          </td>
+          <td>
+            <input class="visuallyhidden" type="text" name="birthday" value="{{birthday}}" placeholder="August 11th, 1953">
+            <span>{{prettyDate birthday}}</span>
+          </td>
+          <td>
+            <button class="button edit">Edit</button>
+            <button class="button save visuallyhidden">Save</button>
+          </td>
         </tr>
       {{/each}}
+    </script>
     </script>
     <script type='text/javascript' src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type='text/javascript' src='//canjs.us/release/latest/can.jquery.min.js'></script>

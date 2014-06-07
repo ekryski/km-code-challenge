@@ -10,7 +10,7 @@
   var Table = can.Control.extend(
     {
       defaults : {
-        view: '<table><thead><tr><td>Name</td><td>City</td><td>Province</td><td>Country</td><td>Birthday</td></tr></thead><tbody></tbody></table>',
+        view: '<table><thead><tr><td>Name</td><td>City</td><td>Province</td><td>Country</td><td>Birthday</td></tr></thead><tbody></tbody></table>'
       }
     },
     {
@@ -40,9 +40,20 @@
       },
 
       '.edit click': function(el, ev){
-        var person = el.data('person');
+        this.toggleEditable(el, ev);
+      },
 
-        // TODO: show form
+      '.save click': function(el, ev){
+        ev.preventDefault();
+
+        this.toggleEditable(el, ev);
+      },
+
+      toggleEditable: function(el, ev) {
+        var row = el.parents('tr');
+        var person = row.data('person');
+
+        row.find('span, input, .edit, .save').toggleClass('visuallyhidden');
       }
 
     });
