@@ -40,20 +40,25 @@
       },
 
       '.edit click': function(el, ev){
-        this.toggleEditable(el, ev);
+        var row = el.parents('tr');
+        this.toggleEditable(row);
       },
 
       '.save click': function(el, ev){
         ev.preventDefault();
 
-        this.toggleEditable(el, ev);
-      },
-
-      toggleEditable: function(el, ev) {
         var row = el.parents('tr');
         var person = row.data('person');
 
-        row.find('span, input, .edit, .save').toggleClass('visuallyhidden');
+        row.find('input').each(function(index, input){
+          person.attr(input.name, input.value);
+        });
+
+        this.toggleEditable(row);
+      },
+
+      toggleEditable: function(el) {
+        el.find('span, input, .edit, .save').toggleClass('visuallyhidden');
       }
 
     });
